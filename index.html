@@ -29,7 +29,7 @@
         </section>
         <section class="row controls" v-if="!gameIsRunning">
             <div class="small-12 columns">
-                <button id="start-game" @click="startGame()">START NEW GAME</button>
+                <button id="start-game" @click="startGame">START NEW GAME</button>
             </div>
         </section>
         <section class="row controls" v-else="gameIsRunning">
@@ -40,11 +40,11 @@
                 <button id="give-up" @click="giveUp">GIVE UP</button>
             </div>
         </section>
-        <section class="row log">
+        <section class="row log" v-if="logs.length > 0">
             <div class="small-12 columns">
                 <ul>
-                    <li>
-
+                    <li v-for="log in logs">
+                        {{ log.text }}
                     </li>
                 </ul>
             </div>
